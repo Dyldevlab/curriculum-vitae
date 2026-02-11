@@ -13,9 +13,9 @@
 
 **Concepteur Developpeur d'Applications** | Niort, France
 
-[![Status](https://img.shields.io/badge/status-open_to_work-brightgreen?style=for-the-badge)](https://dyldevlab.github.io/curriculum-vitae)
-[![CV](https://img.shields.io/badge/CV-live_preview-blue?style=for-the-badge&logo=github-pages)](https://dyldevlab.github.io/curriculum-vitae)
-[![Portfolio](https://img.shields.io/badge/portfolio-vercel-black?style=for-the-badge&logo=vercel)](https://portfolio-dylanbeta.vercel.app)
+<a href="https://dyldevlab.github.io/curriculum-vitae"><img src="https://img.shields.io/badge/status-open_to_work-brightgreen?style=for-the-badge" alt="Status"></a>
+<a href="https://dyldevlab.github.io/curriculum-vitae"><img src="https://img.shields.io/badge/CV-live_preview-blue?style=for-the-badge&logo=github-pages" alt="CV"></a>
+<a href="https://portfolio-dylanbeta.vercel.app"><img src="https://img.shields.io/badge/portfolio-vercel-black?style=for-the-badge&logo=vercel" alt="Portfolio"></a>
 
 </div>
 
