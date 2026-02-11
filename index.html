@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dylan Nalin - Dev CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0d1117;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .browser {
+            width: 700px;
+            background: #161b22;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid #30363d;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        }
+
+        /* Barre navigateur */
+        .browser-bar {
+            background: #21262d;
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .browser-dots { display: flex; gap: 6px; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27ca40; }
+
+        .url-bar {
+            flex: 1;
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 6px 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .url-bar .lock { color: #3fb950; font-size: 11px; }
+        .url-bar .url { font-family: 'Fira Code', monospace; font-size: 12px; color: #8b949e; }
+        .url-bar .url span { color: #58a6ff; }
+
+        .content { padding: 22px; }
+
+        /* Header */
+        .header {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 18px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .avatar {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #58a6ff, #a371f7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 800;
+            color: #0d1117;
+            flex-shrink: 0;
+            border: 3px solid #30363d;
+        }
+
+        .header-info { flex: 1; }
+
+        .name-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 4px;
+        }
+
+        .header-info h1 { font-size: 1.6rem; font-weight: 800; color: #f0f6fc; }
+
+        .status-badge {
+            background: #238636;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .status-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #fff;
+            border-radius: 50%;
+        }
+
+        .username {
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+            color: #8b949e;
+            margin-bottom: 8px;
+        }
+
+        .bio { font-size: 13px; color: #c9d1d9; line-height: 1.5; margin-bottom: 10px; }
+
+        .meta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+        .meta-item { font-size: 12px; color: #8b949e; display: flex; align-items: center; gap: 5px; }
+        .meta-item a { color: #58a6ff; text-decoration: none; }
+
+        /* Code block */
+        .code-section {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .code-header {
+            background: #161b22;
+            padding: 8px 12px;
+            border-bottom: 1px solid #30363d;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .code-filename {
+            font-family: 'Fira Code', monospace;
+            font-size: 12px;
+            color: #c9d1d9;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .icon-json { color: #f1e05a; }
+
+        .code-lang { font-size: 10px; color: #8b949e; background: #21262d; padding: 2px 6px; border-radius: 4px; }
+
+        .code-content {
+            padding: 12px;
+            font-family: 'Fira Code', monospace;
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        .line { display: flex; }
+        .line-number { color: #484f58; width: 24px; text-align: right; padding-right: 12px; user-select: none; }
+        .line-content { flex: 1; }
+
+        .keyword { color: #ff7b72; }
+        .string { color: #a5d6ff; }
+        .property { color: #d2a8ff; }
+        .bracket { color: #c9d1d9; }
+        .boolean { color: #ff7b72; }
+
+        /* Grid */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+
+        /* Cards */
+        .card {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #8b949e;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-title .slash { color: #58a6ff; font-family: 'Fira Code', monospace; }
+
+        /* Timeline */
+        .timeline-item {
+            margin-bottom: 12px;
+            padding-left: 14px;
+            border-left: 2px solid #238636;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 5px;
+            width: 8px;
+            height: 8px;
+            background: #238636;
+            border-radius: 50%;
+        }
+
+        .timeline-item:last-child { margin-bottom: 0; }
+
+        .t-date {
+            font-family: 'Fira Code', monospace;
+            font-size: 10px;
+            color: #238636;
+            font-weight: 600;
+        }
+
+        .t-title { font-size: 13px; color: #f0f6fc; font-weight: 700; margin: 3px 0; }
+        .t-sub { font-size: 11px; color: #8b949e; }
+
+        /* Skills */
+        .skills { display: flex; flex-wrap: wrap; gap: 6px; }
+
+        .skill {
+            font-family: 'Fira Code', monospace;
+            font-size: 11px;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: 1px solid #30363d;
+            background: #21262d;
+            color: #c9d1d9;
+        }
+
+        .skill.react { border-color: #61dafb; color: #61dafb; }
+        .skill.ts { border-color: #3178c6; color: #3178c6; }
+        .skill.js { border-color: #f1e05a; color: #f1e05a; }
+        .skill.next { border-color: #fff; color: #fff; }
+        .skill.java { border-color: #b07219; color: #b07219; }
+
+        /* Experience */
+        .exp {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #21262d;
+        }
+
+        .exp:last-child { margin-bottom: 0; padding-bottom: 0; border: none; }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3px;
+        }
+
+        .exp-title { font-size: 13px; color: #f0f6fc; font-weight: 700; }
+
+        .exp-year {
+            font-family: 'Fira Code', monospace;
+            font-size: 10px;
+            color: #238636;
+            background: rgba(35, 134, 54, 0.15);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .exp-company { font-size: 11px; color: #58a6ff; }
+
+        /* Achievements */
+        .achievement {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            padding: 10px;
+            background: rgba(187, 128, 9, 0.1);
+            border: 1px solid rgba(187, 128, 9, 0.4);
+            border-radius: 6px;
+        }
+
+        .achievement:last-child { margin-bottom: 0; }
+        .achievement-icon { font-size: 20px; }
+        .achievement h4 { font-size: 12px; color: #e3b341; font-weight: 700; }
+        .achievement p { font-size: 10px; color: #8b949e; margin-top: 2px; }
+
+        /* Footer - style terminal */
+        .footer {
+            margin-top: 15px;
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 12px 15px;
+            font-family: 'Fira Code', monospace;
+            font-size: 12px;
+        }
+
+        .footer-line {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .footer-key { color: #d2a8ff; }
+        .footer-equals { color: #8b949e; }
+        .footer-value { color: #a5d6ff; }
+        .footer-value.green { color: #3fb950; }
+        .footer-comment { color: #6e7681; font-style: italic; }
+    </style>
+</head>
+<body>
+    <div class="browser">
+        <div class="browser-bar">
+            <div class="browser-dots">
+                <div class="dot dot-red"></div>
+                <div class="dot dot-yellow"></div>
+                <div class="dot dot-green"></div>
+            </div>
+            <div class="url-bar">
+                <span class="lock">&#128274;</span>
+                <span class="url">github.com/<span>Dyldevlab</span>/curriculum-vitae</span>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Header -->
+            <header class="header">
+                <div class="avatar">DN</div>
+                <div class="header-info">
+                    <div class="name-row">
+                        <h1>Dylan Nalin</h1>
+                        <span class="status-badge">Open to work</span>
+                    </div>
+                    <div class="username">@Dyldevlab · Concepteur Developpeur d'Applications</div>
+                    <p class="bio">Developpeur passionne, je recherche une alternance d'1 an en dev web/logiciel. Objectif : Master EADL en alternance.</p>
+                    <div class="meta-row">
+                        <span class="meta-item">&#128205; Niort, France</span>
+                        <span class="meta-item">&#128231; <a href="mailto:dylan.nalin79@gmail.com">dylan.nalin79@gmail.com</a></span>
+                        <span class="meta-item">&#128222; 07 61 68 75 30</span>
+                        <span class="meta-item">&#128279; <a href="https://portfolio-dylanbeta.vercel.app">portfolio-dylanbeta.vercel.app</a></span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Code block JSON -->
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-filename"><span class="icon-json">{ }</span> dylan.config.json</span>
+                    <span class="code-lang">JSON</span>
+                </div>
+                <div class="code-content">
+                    <div class="line"><span class="line-number">1</span><span class="line-content"><span class="bracket">{</span> <span class="property">"nom"</span>: <span class="string">"Dylan Nalin"</span>, <span class="property">"role"</span>: <span class="string">"Concepteur Developpeur d'Applications"</span>,</span></div>
+                    <div class="line"><span class="line-number">2</span><span class="line-content">  <span class="property">"recherche"</span>: <span class="string">"Alternance 1 an"</span>, <span class="property">"disponible"</span>: <span class="boolean">true</span>,</span></div>
+                    <div class="line"><span class="line-number">3</span><span class="line-content">  <span class="property">"stack"</span>: [<span class="string">"React"</span>, <span class="string">"TypeScript"</span>, <span class="string">"Next.js"</span>, <span class="string">"Tailwind"</span>, <span class="string">"Java"</span>] <span class="bracket">}</span></span></div>
+                </div>
+            </div>
+
+            <!-- Grid -->
+            <div class="grid">
+                <div class="card">
+                    <div class="card-title"><span class="slash">//</span> Formation</div>
+                    <div class="timeline-item">
+                        <div class="t-date">2025 - 2026</div>
+                        <div class="t-title">BAC+3 CDA</div>
+                        <div class="t-sub">Alternance recherchee</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="t-date">2023 - 2025</div>
+                        <div class="t-title">BTS CIEL</div>
+                        <div class="t-sub">ICSSA Niort</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="t-date">2019 - 2023</div>
+                        <div class="t-title">Bac General</div>
+                        <div class="t-sub">Maths / Sciences Ingenieur</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title"><span class="slash">//</span> Experiences</div>
+                    <div class="exp">
+                        <div class="exp-header">
+                            <span class="exp-title">Projet Dette Technique</span>
+                            <span class="exp-year">2025</span>
+                        </div>
+                        <span class="exp-company">All Tech - Frontend Dev</span>
+                    </div>
+                    <div class="exp">
+                        <div class="exp-header">
+                            <span class="exp-title">E-Boutique Prestashop</span>
+                            <span class="exp-year">2024</span>
+                        </div>
+                        <span class="exp-company">1Format'Services</span>
+                    </div>
+                    <div class="exp">
+                        <div class="exp-header">
+                            <span class="exp-title">Employe Logistique</span>
+                            <span class="exp-year">2023-25</span>
+                        </div>
+                        <span class="exp-company">FAVID / Cooperl</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title"><span class="slash">//</span> Distinctions</div>
+                    <div class="achievement">
+                        <span class="achievement-icon">&#127942;</span>
+                        <div>
+                            <h4>Passe Ton Hack 2025</h4>
+                            <p>6e national - 1er academie Poitiers</p>
+                        </div>
+                    </div>
+                    <div class="achievement">
+                        <span class="achievement-icon">&#127942;</span>
+                        <div>
+                            <h4>Passe Ton Hack 2024</h4>
+                            <p>6e au classement national</p>
+                        </div>
+                    </div>
+                    <div class="achievement">
+                        <span class="achievement-icon">&#127891;</span>
+                        <div>
+                            <h4>TOEIC B2</h4>
+                            <p>765 points</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title"><span class="slash">//</span> Stack Technique</div>
+                    <div class="skills">
+                        <span class="skill react">React</span>
+                        <span class="skill ts">TypeScript</span>
+                        <span class="skill js">JavaScript</span>
+                        <span class="skill next">Next.js</span>
+                        <span class="skill">Tailwind</span>
+                        <span class="skill java">Java</span>
+                        <span class="skill">HTML/CSS</span>
+                        <span class="skill">Shadcn</span>
+                    </div>
+                    <div style="margin-top: 10px; font-family: 'Fira Code', monospace; font-size: 10px; color: #6e7681;">
+                        /* infra: Linux, Windows, AD, Cisco */
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer style code -->
+            <div class="footer">
+                <div class="footer-line">
+                    <div class="footer-item">
+                        <span class="footer-key">age</span>
+                        <span class="footer-equals">=</span>
+                        <span class="footer-value">21</span>
+                    </div>
+                    <div class="footer-item">
+                        <span class="footer-key">permis</span>
+                        <span class="footer-equals">=</span>
+                        <span class="footer-value">"B"</span>
+                    </div>
+                    <div class="footer-item">
+                        <span class="footer-key">vehicule</span>
+                        <span class="footer-equals">=</span>
+                        <span class="footer-value green">true</span>
+                    </div>
+                    <div class="footer-item">
+                        <span class="footer-key">english</span>
+                        <span class="footer-equals">=</span>
+                        <span class="footer-value">"B2"</span>
+                    </div>
+                    <div class="footer-item">
+                        <span class="footer-key">alternance</span>
+                        <span class="footer-equals">=</span>
+                        <span class="footer-value">"1 an"</span>
+                    </div>
+                    <span class="footer-comment">// ready to hire</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
