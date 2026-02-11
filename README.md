@@ -15,7 +15,7 @@
 
 <a href="https://dyldevlab.github.io/curriculum-vitae"><img src="https://img.shields.io/badge/status-open_to_work-brightgreen?style=for-the-badge" alt="Status"></a>
 <a href="https://dyldevlab.github.io/curriculum-vitae"><img src="https://img.shields.io/badge/CV-live_preview-blue?style=for-the-badge&logo=github-pages" alt="CV"></a>
-<a href="https://portfolio-dylanbeta.vercel.app"><img src="https://img.shields.io/badge/portfolio-vercel-black?style=for-the-badge&logo=vercel" alt="Portfolio"></a>
+<a href="https://portfolio-dylan-beta.vercel.app"><img src="https://img.shields.io/badge/portfolio-vercel-black?style=for-the-badge&logo=vercel" alt="Portfolio"></a>
 
 </div>
 
@@ -103,7 +103,7 @@ infra:
 ```bash
 email="dylan.nalin79@gmail.com"
 phone="07 61 68 75 30"
-portfolio="https://portfolio-dylanbeta.vercel.app"
+portfolio="https://portfolio-dylan-beta.vercel.app"
 github="https://github.com/Dyldevlab"
 location="Niort, France"
 ```
