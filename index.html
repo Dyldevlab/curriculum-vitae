@@ -168,7 +168,7 @@
 
         .line { display: flex; }
         .line-number { color: #484f58; width: 24px; text-align: right; padding-right: 12px; user-select: none; }
-        .line-content { flex: 1; }
+        .line-content { flex: 1; white-space: pre; color: #c9d1d9; }
 
         .keyword { color: #ff7b72; }
         .string { color: #a5d6ff; }
@@ -203,7 +203,8 @@
 
         /* Timeline */
         .timeline-item {
-            margin-bottom: 12px;
+            margin-bottom: 0;
+            padding-bottom: 12px;
             padding-left: 14px;
             border-left: 2px solid #238636;
             position: relative;
@@ -220,7 +221,7 @@
             border-radius: 50%;
         }
 
-        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-item:last-child { padding-bottom: 0; }
 
         .t-date {
             font-family: 'Fira Code', monospace;
@@ -327,6 +328,17 @@
         .footer-value { color: #a5d6ff; }
         .footer-value.green { color: #3fb950; }
         .footer-comment { color: #6e7681; font-style: italic; }
+
+        @media print {
+            @page { size: A4; margin: 0; }
+            html { zoom: 0.90; }
+            html, body { background: #0d1117 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; min-height: auto; padding: 0; margin: 0; display: block; }
+            .browser { width: 100%; border-radius: 0; border: none; box-shadow: none; }
+            .browser-bar { border-radius: 0; }
+            .content { padding: 18px; }
+            .grid { gap: 12px; }
+            .card { padding: 12px; }
+        }
     </style>
 </head>
 <body>
@@ -352,10 +364,12 @@
                         <h1>Dylan Nalin</h1>
                         <span class="status-badge">Open to work</span>
                     </div>
-                    <div class="username">@Dyldevlab · Concepteur D&eacute;veloppeur d'Applications</div>
-                    <p class="bio">D&eacute;veloppeur passionn&eacute;, je recherche une alternance d'1 an en d&eacute;v web/logiciel.<br>Objectif : Licence Concepteur D&eacute;veloppeur d'Applications en alternance.</p>
+                    <div class="username">@Dyldevlab · Concepteur Développeur d'Applications</div>
+                    <p class="bio">Développeur passionné, je recherche une alternance d'une année en dev web/logiciel.<br>Objectif : Licence Concepteur Développeur d'Applications en alternance.</p>
                     <div class="meta-row">
                         <span class="meta-item">&#128205; Niort, France</span>
+                        <span class="meta-item">&#128197; 21 ans</span>
+                        <span class="meta-item">&#128663; Permis B &middot; V&eacute;hicul&eacute;</span>
                         <span class="meta-item">&#128231; <a href="mailto:dylan.nalin79@gmail.com">dylan.nalin79@gmail.com</a></span>
                         <span class="meta-item">&#128222; 07 61 68 75 30</span>
                         <span class="meta-item">&#128279; <a href="https://portfolio-dylan-beta.vercel.app">portfolio</a></span>
@@ -366,17 +380,16 @@
             <!-- Code block JSON -->
             <div class="code-section">
                 <div class="code-header">
-                    <span class="code-filename"><span class="icon-json">{ }</span> dylan.config.json</span>
+                    <span class="code-filename"><span class="icon-json">{ }</span> dylan.json</span>
                     <span class="code-lang">JSON</span>
                 </div>
                 <div class="code-content">
                     <div class="line"><span class="line-number">1</span><span class="line-content"><span class="bracket">{</span></span></div>
-                    <div class="line"><span class="line-number">2</span><span class="line-content">  <span class="property">"nom"</span>: <span class="string">"Dylan Nalin"</span>,</span></div>
-                    <div class="line"><span class="line-number">3</span><span class="line-content">  <span class="property">"r&ocirc;le"</span>: <span class="string">"Concepteur D&eacute;veloppeur d'Applications"</span>,</span></div>
-                    <div class="line"><span class="line-number">4</span><span class="line-content">  <span class="property">"recherche"</span>: <span class="string">"Alternance 1 an"</span>,</span></div>
-                    <div class="line"><span class="line-number">5</span><span class="line-content">  <span class="property">"disponible"</span>: <span class="boolean">true</span>,</span></div>
-                    <div class="line"><span class="line-number">6</span><span class="line-content">  <span class="property">"stack"</span>: [<span class="string">"React"</span>, <span class="string">"TypeScript"</span>, <span class="string">"Next.js"</span>, <span class="string">"Tailwind"</span>, <span class="string">"Java"</span>]</span></div>
-                    <div class="line"><span class="line-number">7</span><span class="line-content"><span class="bracket">}</span></span></div>
+                    <div class="line"><span class="line-number">2</span><span class="line-content">  <span class="property">"qualités"</span>: [<span class="string">"autonome"</span>, <span class="string">"curieux"</span>, <span class="string">"rigoureux"</span>, <span class="string">"esprit d'équipe"</span>],</span></div>
+                    <div class="line"><span class="line-number">3</span><span class="line-content">  <span class="property">"intérêts"</span>: [<span class="string">"cybersécurité"</span>, <span class="string">"dev web"</span>, <span class="string">"open-source"</span>, <span class="string">"veille tech"</span>],</span></div>
+                    <div class="line"><span class="line-number">4</span><span class="line-content">  <span class="property">"outils"</span>: [<span class="string">"Git"</span>, <span class="string">"VS Code"</span>, <span class="string">"Figma"</span>, <span class="string">"Docker"</span>],</span></div>
+                    <div class="line"><span class="line-number">5</span><span class="line-content">  <span class="property">"activités"</span>: [<span class="string">"musculation"</span>, <span class="string">"gaming"</span>, <span class="string">"CTF"</span>]</span></div>
+                    <div class="line"><span class="line-number">6</span><span class="line-content"><span class="bracket">}</span></span></div>
                 </div>
             </div>
 
@@ -405,21 +418,21 @@
                     <div class="card-title"><span class="slash">//</span> Exp&eacute;riences</div>
                     <div class="exp">
                         <div class="exp-header">
-                            <span class="exp-title">Projet Dette Technique</span>
+                            <span class="exp-title">Projet de fin d'ann&eacute;e - Dette Technique</span>
                             <span class="exp-year">2025</span>
                         </div>
                         <span class="exp-company">All Tech - Frontend Dev</span>
                     </div>
                     <div class="exp">
                         <div class="exp-header">
-                            <span class="exp-title">E-Boutique Prestashop</span>
+                            <span class="exp-title">Stage BTS - E-Boutique Prestashop</span>
                             <span class="exp-year">2024</span>
                         </div>
                         <span class="exp-company">1Format'Services</span>
                     </div>
                     <div class="exp">
                         <div class="exp-header">
-                            <span class="exp-title">Employ&eacute; Logistique</span>
+                            <span class="exp-title">Int&eacute;rim - Employ&eacute; Logistique</span>
                             <span class="exp-year">2023-25</span>
                         </div>
                         <span class="exp-company">FAVID / Cooperl</span>
@@ -451,20 +464,31 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card" style="grid-column: span 2;">
                     <div class="card-title"><span class="slash">//</span> Stack Technique</div>
-                    <div class="skills">
-                        <span class="skill react">React</span>
-                        <span class="skill ts">TypeScript</span>
-                        <span class="skill js">JavaScript</span>
-                        <span class="skill next">Next.js</span>
-                        <span class="skill">Tailwind</span>
-                        <span class="skill java">Java</span>
-                        <span class="skill">HTML/CSS</span>
-                        <span class="skill">Shadcn</span>
-                    </div>
-                    <div style="margin-top: 10px; font-family: 'Fira Code', monospace; font-size: 10px; color: #6e7681;">
-                        /* infra: Linux, Windows, AD, Cisco */
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                        <div>
+                            <div style="font-size: 10px; color: #6e7681; font-family: 'Fira Code', monospace; margin-bottom: 6px;">/* frontend */</div>
+                            <div class="skills">
+                                <span class="skill react">React</span>
+                                <span class="skill ts">TypeScript</span>
+                                <span class="skill js">JavaScript</span>
+                                <span class="skill next">Next.js</span>
+                                <span class="skill">Tailwind</span>
+                                <span class="skill">HTML/CSS</span>
+                                <span class="skill">Shadcn</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="font-size: 10px; color: #6e7681; font-family: 'Fira Code', monospace; margin-bottom: 6px;">/* backend &amp; infra */</div>
+                            <div class="skills">
+                                <span class="skill java">Java</span>
+                                <span class="skill">Linux</span>
+                                <span class="skill">Windows</span>
+                                <span class="skill">Active Directory</span>
+                                <span class="skill">Cisco</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -473,29 +497,19 @@
             <div class="footer">
                 <div class="footer-line">
                     <div class="footer-item">
-                        <span class="footer-key">age</span>
+                        <span class="footer-key">fran&ccedil;ais</span>
                         <span class="footer-equals">=</span>
-                        <span class="footer-value">21</span>
+                        <span class="footer-value">"natif"</span>
                     </div>
                     <div class="footer-item">
-                        <span class="footer-key">permis</span>
+                        <span class="footer-key">anglais</span>
                         <span class="footer-equals">=</span>
-                        <span class="footer-value">"B"</span>
+                        <span class="footer-value">"B2 - TOEIC 765"</span>
                     </div>
                     <div class="footer-item">
-                        <span class="footer-key">vehicule</span>
+                        <span class="footer-key">espagnol</span>
                         <span class="footer-equals">=</span>
-                        <span class="footer-value green">true</span>
-                    </div>
-                    <div class="footer-item">
-                        <span class="footer-key">english</span>
-                        <span class="footer-equals">=</span>
-                        <span class="footer-value">"B2"</span>
-                    </div>
-                    <div class="footer-item">
-                        <span class="footer-key">alternance</span>
-                        <span class="footer-equals">=</span>
-                        <span class="footer-value">"1 an"</span>
+                        <span class="footer-value">"A1"</span>
                     </div>
                 </div>
             </div>
