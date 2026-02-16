@@ -11,7 +11,7 @@
 
 ### `> git clone human://dylan-nalin --branch=dev`
 
-**Concepteur D\u00e9veloppeur d'Applications** | Niort, France
+**Concepteur Développeur d'Applications** | Niort, France
 
 <a href="https://dyldevlab.github.io/curriculum-vitae"><img src="https://img.shields.io/badge/status-open_to_work-brightgreen?style=for-the-badge" alt="Status"></a>
 <a href="https://dyldevlab.github.io/curriculum-vitae"><img src="https://img.shields.io/badge/CV-live_preview-blue?style=for-the-badge&logo=github-pages" alt="CV"></a>
@@ -27,12 +27,12 @@
 {
   "nom": "Dylan Nalin",
   "age": 21,
-  "r\u00f4le": "Concepteur D\u00e9veloppeur d'Applications",
+  "rôle": "Concepteur Développeur d'Applications",
   "recherche": "Alternance 1 an",
   "disponible": true,
   "localisation": "Niort, France",
   "permis": "B",
-  "v\u00e9hicule": true
+  "véhicule": true
 }
 ```
 
@@ -41,9 +41,9 @@
 ## `$ git log --oneline formation/`
 
 ```
-2026-27  feat(formation): Licence 3 CDA (Bac +3) - alternance recherch\u00e9e
+2026-27  feat(formation): Licence 3 CDA (Bac +3) - alternance recherchée
 2023-25  feat(formation): BTS CIEL (Bac +2) - ICSSA Niort
-2019-23  init(formation): Bac S G\u00e9n\u00e9ral - Maths / Sciences Ing\u00e9nieur
+2019-23  init(formation): Bac S Général - Maths / Sciences Ingénieur
 ```
 
 ## `$ git log --oneline experiences/`
@@ -51,7 +51,7 @@
 ```
 2025     feat(pro): Projet Dette Technique @ All Tech - Frontend Dev
 2024     feat(pro): E-Boutique Prestashop @ 1Format'Services
-2023-25  fix(job): Employ\u00e9 Logistique @ FAVID / Cooperl
+2023-25  fix(job): Employé Logistique @ FAVID / Cooperl
 ```
 
 ---
@@ -91,7 +91,7 @@ infra:
 ## `$ cat achievements.log`
 
 ```
-[TROPHY] 2025 - Passe Ton Hack : 6e national | 1er acad\u00e9mie de Poitiers
+[TROPHY] 2025 - Passe Ton Hack : 6e national | 1er académie de Poitiers
 [TROPHY] 2024 - Passe Ton Hack : 6e au classement national
 [CERT]   TOEIC B2 - 765 points
 ```
